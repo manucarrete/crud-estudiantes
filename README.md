@@ -1,12 +1,25 @@
-## Proyecto 3. CRM con firebase
+# CRUD de Estudiantes con Firebase
 
-Con la base del código que se trabajo en el proyecto CRUD con firebase que puedes descargar de aquí: https://github.com/eusa-daw-ec/crud-firebase.git y del que dispones de toda la documentación, desarrollar un CRUD para llevar el control de una base de datos de estudiantes de un centro de formación.
+## Funcionalidades
 
-Puedes servirte de los ficheros del repositorio siguiente: https://github.com/eusa-daw-ec/CRUD-Estudiantes.git
-Te servirá como inicio para el proyecto.
+- **Registrar un nuevo estudiante:** Permite ingresar los datos de un nuevo estudiante (nombre, apellidos, teléfono, correo electrónico y descripción) y guardarlos en Firebase.
+- **Listar estudiantes:** Muestra un listado de todos los estudiantes registrados en Firebase, permitiendo visualizar su información.
+- **Editar estudiante:** Permite modificar los datos de un estudiante seleccionado. Los cambios se reflejan en tiempo real en Firebase.
+- **Eliminar estudiante:** Permite eliminar el registro de un estudiante de Firebase.
 
-### Desarrollo
+## Conexión con Firebase
 
-- Usa el código anterior para desarrollar el CRUD de modo que tengas una estructura Lista-Detalle
-- El detalle de cada ficha se presentará a través de una ventana modal (la estructura ya está programada en los ficheros del repositorio)
-- Introduce la validación correspondiente en los campos del formulario
+La aplicación se conecta a Firebase utilizando la SDK de Firebase para web. La configuración específica del proyecto Firebase se realiza mediante un objeto de configuración que incluye la apiKey, authDomain, projectId, storageBucket, messagingSenderId, appId y databaseURL. Tal y como venía en el ejemple, aunque usando mi propia base de datos.
+
+### Inicialización de Firebase
+
+Firebase se inicializa en el archivo "app.js" utilizando la función "initializeApp" de Firebase SDK, pasando el objeto de configuración como argumento.
+
+### Operaciones CRUD
+
+Las operaciones CRUD se realizan utilizando la Firebase Database SDK. Se utilizan las funciones "getDatabase", "ref", "set", "get", "update", y "remove" para interactuar con la base de datos en tiempo real.
+
+- **Crear:** Se utiliza "set" junto con "push" para añadir nuevos registros a la base de datos.
+- **Leer:** Se utiliza "get" para recuperar los datos de los estudiantes almacenados en Firebase y mostrarlos en la página.
+- **Actualizar:** Se utiliza "update" para modificar los datos existentes de un estudiante en Firebase.
+- **Eliminar:** Se utiliza "remove" para eliminar el registro de un estudiante de la base de datos.
